@@ -24,7 +24,7 @@
             if (document.getElementById("search").value == "") return;
             const search = document.getElementById("search").value.toString().toLowerCase();
             if (search === "js" || search === "css") return;
-            window.location.href = "/" + encodeURIComponent(search);
+            window.location.href += encodeURIComponent(search);
         }
     })
 </script>
