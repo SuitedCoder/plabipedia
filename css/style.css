@@ -1,0 +1,146 @@
+:root {
+    --bg: #121212;
+    --text: #e0e0e0;
+    --accent: #4da6ff;
+    --border: #333;
+    --code-bg: #1e1e1e;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    font-family: system-ui;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+}
+
+input {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 1rem 1.25rem;
+    color: var(--text);
+    width: 100%;
+    margin: 1rem 0;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid white;
+  box-shadow: 0 0 4px rgba(74, 144, 226, 0.6);
+}
+
+/* Table of Contents */
+#toc {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.2rem 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    border-left: 4px solid var(--accent);
+}
+
+#toc ul {
+    list-style: none;
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+#toc a:hover {
+    text-decoration: underline;
+}
+
+/* Collapsible sections */
+details {
+    margin: 1.2rem 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+summary {
+    padding: 0.9rem 1.2rem;
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+
+details[open] summary {
+    background: rgba(0, 102, 204, 0.08);
+}
+
+.content {
+    padding: 1.2rem;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+th,
+td {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 600;
+}
+
+pre,
+code {
+    background: var(--code-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Courier New', monospace;
+}
+
+pre {
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+/* Theme toggle */
+#theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+    z-index: 100;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem 0.8rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
