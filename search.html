@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <input id="search" type="text" id="search-input" autocomplete="off" placeholder="Search..." />
+</body>
+<script type="module">
+    document.getElementById("search").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            if (document.getElementById("search").value == "") return;
+            const search = document.getElementById("search").value.toString().toLowerCase();
+            if (search === "js" || search === "css") return;
+            window.location.href = `search.html?search=${encodeURIComponent(search)}`;
+        }
+    })
+
+    import index from './index.json' with { type: 'json' };
+    const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get('search');
+
+    document.getElementById("search").value = searchQuery || "";
+    const matches = index.filter(entry => entry.title.toLowerCase().includes((searchQuery || "").toLowerCase()));
+    if (matches.length > 0) {
+        matches.forEach(entry => {
+            const a = document.createElement('a');
+            a.href = entry.url;
+            a.textContent = entry.title;
+            const tip = document.createElement('p');
+            tip.textContent = entry.tip;
+            tip.style.fontStyle = "italic";
+            tip.style.marginTop = "0";
+            document.body.appendChild(a);
+            document.body.appendChild(tip);
+        });
+    }
+</script>
+</html>
